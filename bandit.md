@@ -41,25 +41,59 @@ We will use “find / -user bandit7 -group bandit6 -size 33c“, to search every
 The output is “/var/lib/dpkg/info/bandit7.password”
 So use “cat /var/lib/dpkg/info/bandit7.password” to print the content out from that file, which is also the password
 
-8:
+8:cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+Use "cat data.txt | grep "millionth" to search for the lines that have the given pattern or string in them.
 
-9:
+9:UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+Use "cat data.txt | sort | uniq -u" to search for the unique line of text.
 
-10:
+10:truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+Use "strings data.txt| grep "=="" it will give us the human-readable strings in a file, and search for several "=" characters
 
-11:
+11:IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+Use "base64 -d data.txt" to decode the base64 encoded data.
 
-12:
+12:5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+Use "cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'" to decrypt the rot13 encryption
 
-13:
+13:8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+mkdir /tmp/banditgame/
+cp data.txt /tmp/banditgame/
+cd /tmp/banditgame/
+xxd -r data.txt data.gz 
+gzip -d data.gz && bzip2 -d -q data
+mv data.out data.gz && 
+gzip -d data.gz 
+tar xf data
+tar xf data5.bin
+bzip2 -d -q data6.bin
+tar xf data6.bin.out
+mv data8.bin data8.gz
+gzip -d data8.gz
+cat data8
+These are the process do decompress that hexdump file that has been repeatedly compressed
 
-14:
+14: 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+Use "ssh bandit14@localhost -i sshkey.private" to access the SSH using an ssh private key.
+Then "cat /etc/bandit_pass/bandit14" to have the password to use it next time without
+the hassle of going to level 13 to access level 14.
 
-15:
+15: BfMYroe26WYalil77FoDi9qh59eK5xNr
+Use "nc localhost 30000" to submit the password of level 14 to prot 30000 on localhost.
+Note: nc stands for netcat.
 
-16:
+16: cluFn7wTiGryunymYOu4RcffSxQluehd
+Use "openssl s_client -connect localhost:30001" to access to the port 30001 on localhost using SSL encryption, and then we can submit the password from level 15.
 
-17:
+17: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+Use "nmap -A localhost -p 31000-32000" to do an aggressive scan to see which port is not
+echoing back/send back whatever you send to it.
+The results shows the port 31790 is the only one that doesnt echo.
+Use "openssl s_client -connect localhost:31790" to connect to that port and submit the password from level 16. The port will then send back what the RSA private key. We need it as a file to use it to connect using SSL encryption.
+We first need to make a directory in the temp directory "mkdir /tmp/son1", then "nano /tmp/son1/key.private" to create the file with the RSA private key for SSL encryption.
+Then we use "ssh bandit17@localhost -i /tmp/son1/key.private" to connect to level 17 using SSL encryption. However, the terminal then tell me that "Permissions 0644 for '/tmp/son1/key.private' are too open.". Thus we need to use "chmod 600 /tmp/son1/key.private
+", which means only the owner has full read and write access to the file, while no other users can access the file.
+After we connect successfully to level 17, use "cat /etc/bandit_pass/bandit17" to achieve the password of level 17 so we can access level 17 without going again from level 16
 
 18:
 
