@@ -40,6 +40,7 @@ We use pwd command to see our current working directory, which is “/home/bandi
 We will use “find / -user bandit7 -group bandit6 -size 33c“, to search everything on the server/machine here.
 The output is “/var/lib/dpkg/info/bandit7.password”
 So use “cat /var/lib/dpkg/info/bandit7.password” to print the content out from that file, which is also the password
+
 8:
 
 9:
